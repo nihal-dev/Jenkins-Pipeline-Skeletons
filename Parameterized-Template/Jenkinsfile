@@ -1,0 +1,11 @@
+pipeline{
+    agent any
+    parameters{
+        string(name: "USERID", defaultValue: "nihal" ,description: "Give your username")
+    }
+    stages{
+        stage('Display the values'){
+            sh "echo ${params.USERID}"
+        }
+    }
+}
