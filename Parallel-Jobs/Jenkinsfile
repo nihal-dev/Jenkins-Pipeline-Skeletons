@@ -7,9 +7,19 @@ pipeline{
             }
         }
 
-        stage('Check the contents of file'){
-            steps{
-                sh "cat yaml/nginx-service.yaml"
+        stage('Display file contents'){
+            parallel{
+                stage('Display deployment file'){
+                    steps{
+                        sh "cat yaml/nginx-deploy.yaml"
+                    }
+                }
+
+                stage('Display service file'){
+                    steps{
+                        sh "cat yaml/nginx-service.yaml"
+                    }
+                }
             }
         }
     }
