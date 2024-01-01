@@ -1,0 +1,16 @@
+pipeline{
+    agent any
+    stages{
+        stage('Clone Repository'){
+            steps{
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/nihal-dev/argocd-practise.git'
+            }
+        }
+
+        stage('Check the contents of file'){
+            steps{
+                cat yaml/nginx-service.yaml
+            }
+        }
+    }
+}
