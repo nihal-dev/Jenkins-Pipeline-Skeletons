@@ -18,8 +18,15 @@ pipeline{
                 stage('Display service file'){
                     steps{
                         sh "cat yaml/nginx-service.yaml"
+                        sh sleep 20s
                     }
                 }
+            }
+        }
+
+        stage('Display Bye message'){
+            step{
+                echo "Bye"
             }
         }
     }
