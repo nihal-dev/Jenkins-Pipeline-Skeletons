@@ -5,7 +5,7 @@ pipeline{
     }
     stages{
         stage('Display the values'){
-            sh "echo ${params.USERID}"
+            echo "${params.USERID}"
         }
     }
 }
