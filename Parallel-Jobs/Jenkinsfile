@@ -1,9 +1,11 @@
+@Library("basicFunction") _
 pipeline{
     agent any
     stages{
         stage('Clone Repository'){
             steps{
-                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/nihal-dev/argocd-practise.git'
+                //git branch: 'main', changelog: false, poll: false, url: 'https://github.com/nihal-dev/argocd-practise.git'
+                gitClone() //shared library file present in vars
             }
         }
 
@@ -14,6 +16,7 @@ pipeline{
         }
 
         stage('Display file contents'){
+            //parallel job details
             parallel{
                 stage('Display deployment file'){
                     steps{
