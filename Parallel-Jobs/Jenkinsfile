@@ -7,6 +7,12 @@ pipeline{
             }
         }
 
+        stage('check the pwd'){
+            steps{
+                sh "pwd"
+            }
+        }
+
         stage('Display file contents'){
             parallel{
                 stage('Display deployment file'){
