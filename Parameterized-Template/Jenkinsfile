@@ -1,12 +1,18 @@
 pipeline{
     agent any
     parameters{
-        string(name: "USERID", defaultValue: "nihal" ,description: "Give your username")
+        string(name: "USERID", defaultValue: "nihal" ,description: "Give your username") // string value
+        booleanParam(name: "Toggle", defaultValue: "true", description: "Toggle this value") //boolean value
+        choice(name: "City", choices: ['Mumbai', 'Pune'], description: "Pick your favourite city") //choice
+        password(name: "PASSWD", defaultValue: "SECRET", description: "Enter your password") //password
     }
     stages{
         stage('Display the values'){
             steps{
             echo "${params.USERID}"
+            echo "${params.Toggle}"
+            echo "${params.City}"
+            echo "${params.PASSWD}"
             }
         }
     }
