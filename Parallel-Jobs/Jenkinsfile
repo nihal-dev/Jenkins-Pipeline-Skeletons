@@ -6,7 +6,7 @@ pipeline{
             steps{
                 //git branch: 'main', changelog: false, poll: false, url: 'https://github.com/nihal-dev/argocd-practise.git'
                 script {
-                    gitClone.cloneRepo() //shared library file present in vars
+                    gitClone.cloneRepo("https://github.com/nihal-dev/argocd-practise.git") //shared library file present in vars
                 }
             }
         }

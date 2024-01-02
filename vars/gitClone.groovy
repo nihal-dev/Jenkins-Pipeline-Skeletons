@@ -1,3 +1,3 @@
-def cloneRepo(){
-    git branch: 'main', poll: false, url: 'https://github.com/nihal-dev/argocd-practise.git'
+def cloneRepo(string repoURL){
+    git branch: 'main', poll: false, url: ${repoURL}
 }
