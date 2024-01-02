@@ -1,3 +1,3 @@
-def cloneRepo(string repoURL){
+def cloneRepo(String repoURL){
     git branch: 'main', poll: false, url: ${repoURL}
 }
