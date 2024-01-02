@@ -5,7 +5,9 @@ pipeline{
         stage('Clone Repository'){
             steps{
                 //git branch: 'main', changelog: false, poll: false, url: 'https://github.com/nihal-dev/argocd-practise.git'
-                gitClone.cloneRepo() //shared library file present in vars
+                scripts {
+                    gitClone.cloneRepo() //shared library file present in vars
+                }
             }
         }
 
