@@ -15,9 +15,11 @@ pipeline{
 
         stage("Push to Repository"){
             steps{
-                withDockerRegistry(credentialsId: 'docker-creds', url: 'hub.docker.com') {
-                    def image = docker.image("nihals/nginx-v{env.BUILD_NUMBER}")
-                    image.push()
+                script{
+                    withDockerRegistry(credentialsId: 'docker-creds', url: 'hub.docker.com') {
+                        def image = docker.image("nihals/nginx-v{env.BUILD_NUMBER}")
+                        image.push()
+                    }
                 }
             }
         }
