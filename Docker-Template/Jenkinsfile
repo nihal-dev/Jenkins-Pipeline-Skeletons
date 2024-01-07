@@ -1,3 +1,6 @@
+//Requires host to have docker installed. Jenkins should be added to docker group
+//Docker pipeline plugin is required.
+
 pipeline{
     agent any
     stages{
