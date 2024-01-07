@@ -20,6 +20,8 @@
 //     }
 // }
 
+//need to add the trigger for it to work
+
 pipeline {
     agent any
     triggers{
