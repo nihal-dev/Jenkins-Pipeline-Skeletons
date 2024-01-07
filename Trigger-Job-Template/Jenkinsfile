@@ -3,7 +3,9 @@ pipeline{
     stages{
         stage("Call another job"){
             steps{
-                build job: 'upstream-job'
+                build job: 'upstream-job', parameters: [
+                    string(name: username, value: 'Harshal')
+                ]
             }
         }
     }
