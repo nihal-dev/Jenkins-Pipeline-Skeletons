@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+    stages{
+        stage('Retry Option'){
+            steps{
+                script{
+                    //define the variables
+                    def maxRetry = 2
+                    def currentRetry = 0
+                    def success = false
+
+                    //retry option in Jenkins
+                    retry(maxRetry){
+                        try{
+                            sh 'sleeep 10'
+
+                            //if the above succeeds, then set the success to true
+                            success = true
+                        }
+                        //catch the error 
+                        catch (Exception e){
+                            currentRetry++
+                            echo "Retry ${currentRetry} of ${maxRetry}"
+
+                            //just for fun set it to sleep for 10 sec
+                            sleep 10
+                        }
+                    }
+                    //just checking if the stage was success or not
+                    if(success != true){
+                        error("Failed after ${maxRetry} retries")
+                    }
+                }
+            }
+        }
+
+        stage("Last stage"){
+            steps{
+                echo "Bye!"
+            }
+        }
+    }
+}
