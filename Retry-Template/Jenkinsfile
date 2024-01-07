@@ -12,6 +12,7 @@ pipeline {
                     //retry option in Jenkins
                     retry(maxRetry){
                         try{
+                            //want the stage to fail
                             sh 'sleeep 10'
 
                             //if the above succeeds, then set the success to true
