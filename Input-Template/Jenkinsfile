@@ -9,7 +9,7 @@ pipeline{
                         parameters: [string(name: 'user_name', defaultValue: 'nihal', description: 'Your username')]
                     )
 
-                    echo "Your username is: ${userInput['user_name']}"
+                    echo ("Your username is:"+userInput['user_name'])
                 }
             }
         }
