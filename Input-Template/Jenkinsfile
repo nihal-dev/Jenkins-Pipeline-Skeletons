@@ -1,0 +1,14 @@
+pipeline{
+    agent any
+    stages{
+        stage("Take Input from User"){
+            input{
+                message "Should we continue"
+                ok " "
+            }
+            steps{
+                echo "Something"
+            }
+        }
+    }
+}
