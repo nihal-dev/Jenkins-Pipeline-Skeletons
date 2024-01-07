@@ -9,7 +9,7 @@ pipeline{
 
         stage("Build Image"){
             steps{
-                sh echo "${env.BUILD_TAG}"
+                echo "${env.BUILD_TAG}"
             }
         }
     }
