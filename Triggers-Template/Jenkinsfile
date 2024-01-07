@@ -1,0 +1,21 @@
+pipeline{
+    agent any
+    // triggers{
+    //     pollSCM('H/2 * * * *')
+    // }
+    stages{
+        stage("Display commands"){
+            steps{
+                script{
+                    checkout changelog: false, scm: scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'prod-repo-creds', url: 'https://github.com/nihal-2059/jenkins-docker-test.git']])
+                }
+            }
+        }
+
+        stage("List the contents"){
+            steps{
+                sh "cat Dockerfile"
+            }
+        }
+    }
+}
