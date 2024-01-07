@@ -1,0 +1,10 @@
+pipeline{
+    agent any
+    stages{
+        stage("Call another job"){
+            steps{
+                build job: 'upstream-job'
+            }
+        }
+    }
+}
