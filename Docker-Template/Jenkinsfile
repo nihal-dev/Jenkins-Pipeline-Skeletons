@@ -1,0 +1,16 @@
+pipeline{
+    agent any
+    stages{
+        stage("Git checkout"){
+            steps{
+                git branch: 'main', changelog: false, credentialsId: 'prod-repo-creds', poll: false, url: 'https://github.com/nihal-2059/jenkins-docker-test.git'
+            }
+        }
+
+        stage("Build Image"){
+            steps{
+                sh ${env.BUILD_TAG}
+            }
+        }
+    }
+}

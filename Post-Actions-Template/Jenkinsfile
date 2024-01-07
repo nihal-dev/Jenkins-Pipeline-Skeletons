@@ -21,10 +21,11 @@ pipeline{
     }
 //post build actions
 post {
+    //if all the builds succeded.
     success {
         echo "The stages were completed successfully!"
     }
-
+    //if any one of the build fails
     failure {
         echo "Stages have failed, please check once"
     }
