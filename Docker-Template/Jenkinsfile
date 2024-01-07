@@ -9,7 +9,7 @@ pipeline{
 
         stage("Build Image"){
             steps{
-                sh docker build -t nginx-${env.BUILD_NUMBER} .
+                sh "docker build -t nginx-${env.BUILD_NUMBER} ."
             }
         }
     }
