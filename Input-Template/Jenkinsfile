@@ -1,13 +1,16 @@
 pipeline{
     agent any
     stages{
-        stage("Take Input from User"){
-            input{
-                message "Should we continue"
-                ok " "
-            }
+        stage("Take user input"){
             steps{
-                echo "Something"
+                script{
+                    def userInput = input(
+                        id: 'userInput', message: 'Please provide inputs',
+                        parameters: [string(name: 'user_name', defaultValue: 'nihal', description: 'Your username')]
+                    )
+
+                    echo "Your username is: ${userInput['user_name']}"
+                }
             }
         }
     }
