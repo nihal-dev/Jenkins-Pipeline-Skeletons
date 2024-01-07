@@ -1,31 +1,11 @@
-// pipeline{
-//     agent any
-//     triggers{
-//         pollSCM('H/2 * * * *')
-//     }
-//     stages{
-//         stage("Display commands"){
-//             steps{
-//                 script{
-//                     checkout changelog: false, scm: scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'prod-repo-creds', url: 'https://github.com/nihal-2059/jenkins-docker-test.git']])
-//                 }
-//             }
-//         }
-
-//         stage("List the contents"){
-//             steps{
-//                 sh "cat Dockerfile"
-//             }
-//         }
-//     }
-// }
-
 //need to add the trigger for it to work
-
+//Methods : SCM polling, Cron, Upstream Jobs
 pipeline {
     agent any
     triggers{
-        pollSCM('H/2 * * * *')
+        //pollSCM('H/2 * * * *') use polling to trigger the job
+        //cron('H/2 * * * *') set cron to build the job periodically 
+        upstream(upstreamProjects: 'upstream-job', threshold: hudson.model.Result.SUCCESS) //if the upstream job succededs, trigger the job
     }
     stages{
         stage("Checkout git"){
