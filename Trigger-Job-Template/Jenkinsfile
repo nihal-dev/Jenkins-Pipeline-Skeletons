@@ -3,14 +3,11 @@ pipeline{
     stages{
         stage("Call another job"){
             steps{
-                //step to get userinput
-                script{
-                    def userName = input(
-                        id: 'userName', message: 'Please provide username', parameters: [
-                            string(name: 'userName', defaultValue: 'Nihal', description: 'Your username')
-                        ]
-                    )
-                }
+                def userName = input(
+                    id: 'userName', message: 'Please provide username', parameters: [
+                        string(name: 'userName', defaultValue: 'Nihal', description: 'Your username')
+                    ]
+                )
 
                 //call the upstream job
                 build job: 'upstream-job', parameters: [
