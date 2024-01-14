@@ -9,7 +9,7 @@ pipeline{
                         parameters: [string(name: 'user_name', defaultValue: 'nihal', description: 'Your username')]
                     )
                     def userName = userInput['user_name']
-                    echo "Username is ${userName}"
+                    echo "Username is ${userInput}"
                 }
             }
         }
