@@ -14,7 +14,7 @@ pipeline{
 
                 //call the upstream job
                 build job: 'upstream-job', parameters: [
-                    string(name: 'username', value: "${userName}")
+                    string(name: 'username', value: userName)
                 ]
             }
         }
