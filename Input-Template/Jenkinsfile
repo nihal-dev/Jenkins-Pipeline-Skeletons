@@ -8,7 +8,7 @@ pipeline{
                         id: 'userInput', message: 'Please provide inputs',
                         parameters: [string(name: 'user_name', defaultValue: 'nihal', description: 'Your username')]
                     )
-                    def userName = userInput['user_name']
+                    //def userName = userInput['user_name']
                     echo "Username is ${userInput}"
                 }
             }
