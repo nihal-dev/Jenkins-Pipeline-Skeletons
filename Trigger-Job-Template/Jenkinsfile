@@ -4,8 +4,14 @@ pipeline{
         stage("Call another job"){
             steps{
                 build job: 'upstream-job', parameters: [
-                    string(name: 'username', value: 'Harshal')
+                    string(name: 'username', defaultValue: 'Harshal')
                 ]
+            }
+        }
+
+        stage("Completion"){
+            steps{
+                echo "Upstream job is complete!"
             }
         }
     }
